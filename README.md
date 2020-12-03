@@ -3,7 +3,6 @@ Lidemy mentor-program-4th Final Project Backend API
 
 Base URL: http://movie-api.jas0nhuang.tw/
 
-APIs:
 ## movies_intheaters
 URL: `/`
 
