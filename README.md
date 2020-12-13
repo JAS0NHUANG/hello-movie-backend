@@ -3,7 +3,10 @@ Lidemy mentor-program-4th Final Project Backend API
 
 Base URL: http://movie-api.jas0nhuang.tw/
 
-## movies_intheaters
+## GET
+### movies_intheaters
+Get information about movies in theaters.
+
 URL: `/`
 
 Method: `GET`
@@ -26,16 +29,20 @@ A single object example:
 }
 ```
 
-## movies_thisweek
+### movies_thisweek
+Get information about movies relasing in the coming week.
+
 URL: `/movies-thisweek`
 
 Method: `GET`
 
-Response: An array of movie (releasing in the coming week) information objects.
+Response: An array of movie information objects.
 A single object example is the same as movies_intheaters.
 
 
-## movie_genres
+### movie_genres
+Get movie genres.
+
 URL: `/movie-genres`
 
 Method: `GET`
@@ -47,13 +54,47 @@ A single object example:
 ```
 
 
-## error
+### error
+Shows when error occurs (same for all GET APIs).
+
 Response: An object shown as below:
 ```
 { "ok": 0, "errorMessage": "Server error"}
 ```
 
--------------------
+## POST
+### subscribe
+Subscribe to the mailing list.
+
+URL: `/subscribe`
+
+Method: `POST`
+
+Response: A MongoDB result object.
+
+Headers: 
+```
+{
+  "Content-Type": "application/json"
+}
+```
+
+Example:
+```
+fetch('http://movie-api.jas0nhuang.tw/subscribe', {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    email: '12345@gmail.com'
+  })
+})
+.then(res => res.json())
+.then(data => console.log(data))
+```
+
+------------------
 # Planning:
 
 ## register
@@ -62,12 +103,7 @@ Method: `POST`
 ## login
 Method: `POST`
 
-## subscribe
-Method: `POST`
-
-subscribe to news letter.
-
 ## unsubscribe
-Method: `POST`
+Method: `DELETE`
 
-unsubscribe
+unsubscribe from the mailing list.
