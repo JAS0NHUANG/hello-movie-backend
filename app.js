@@ -1,26 +1,26 @@
-const express =         require('express')
-const cors =            require('cors')
-const bodyParser =      require('body-parser')
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
-const movieController = require('./controllers/movie')
-const emailController = require('./controllers/email')
+const movieController = require('./controllers/movie');
+const emailController = require('./controllers/email');
 
-const app = express()
+const app = express();
 
-const port = 999 
+const port = 999;
 
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(bodyParser.json())
-app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
 
-app.get('/',                movieController.getAllMovies)
-app.get('/movies-thisweek', movieController.getMoviesThisweek)
-app.get('/movie-genres',    movieController.getMovieGenres)
+app.get('/movies-intheaters', movieController.getMovies);
+app.get('/movies-thisweek', movieController.getMoviesThisweek);
+app.get('/movie-genres', movieController.getMovieGenres);
 
-app.post('/subscribe',      emailController.subscribeEmail)
+app.post('/subscribe', emailController.subscribeEmail);
 
 app.listen(port, () => {
-  console.log("This is Movie Times!")
-})
+  console.log('Hello Movie!');
+});
 
-app.options('*', cors())
+app.options('*', cors());

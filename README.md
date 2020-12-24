@@ -7,27 +7,41 @@ Base URL: http://movie-api.jas0nhuang.tw/
 ### movies_intheaters
 Get information about movies in theaters.
 
-URL: `/`
+URL: `/movies-intheaters`
 
 Method: `GET`
 
-Response: An array of movie (in theaters) information objects.
-A single object example:
-```
-{
-  "_id": "5fc9cad77642aa2e900c55dd",
-  "name": "古魯家族：新石代",
-  "releaseDate": 1606435200000,
-  "story": "STORY TEXT",
-  "imgSrc": "https://............",
-  "genre": ["'動畫'","'喜劇'"],
-  "runtime: "01時35分",
-  "imdbRating": "7.1",
-  "director": "喬伊克勞福德(JoelCrawford)",
-  "actors": ["尼可拉斯凱吉(NicolasCage)","萊恩雷諾斯(RyanReynolds)"...],
-  "trailer": "https://..........."
-}
-```
+Query Parameters:
+
+- None
+
+  Response: An array of movie (in theaters) information objects.
+  A single object example:
+  ```
+  {
+    "_id": "5fc9cad77642aa2e900c55dd",
+    "name": "古魯家族：新石代",
+    "releaseDate": 1606435200000,
+    "story": "STORY TEXT",
+    "imgSrc": "https://............",
+    "genre": ["'動畫'","'喜劇'"],
+    "runtime: "01時35分",
+    "imdbRating": "7.1",
+    "director": "喬伊克勞福德(JoelCrawford)",
+    "actors": ["尼可拉斯凱吉(NicolasCage)","萊恩雷諾斯(RyanReynolds)"...],
+    "trailer": "https://..........."
+  }
+  ```
+
+- genre
+
+  Response: Same as above but movies filtered with genre given.
+
+  Request example:
+  ```
+  fetch('http://movie-api.jas0nhuang.tw/movies-intheaters?genre=喜劇')
+    .then(...)
+  ```
 
 ### movies_thisweek
 Get information about movies relasing in the coming week.
@@ -79,7 +93,7 @@ Headers:
 }
 ```
 
-Example:
+Request example:
 ```
 fetch('http://movie-api.jas0nhuang.tw/subscribe', {
   method: 'POST',

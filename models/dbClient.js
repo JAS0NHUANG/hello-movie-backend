@@ -1,17 +1,16 @@
-const { MongoClient } = require('mongodb')
-const { DB_URL } = require('../config')
+const { MongoClient } = require('mongodb');
+const { DB_URL } = require('../config');
 
-const dbClient = new MongoClient(DB_URL, { useUnifiedTopology: true } )
+const dbClient = new MongoClient(DB_URL, { useUnifiedTopology: true });
 
 async function dbConnect() {
   try {
-    await dbClient.connect()
-  } 
-  catch (error) {
-    console.log(error)
+    await dbClient.connect();
+  } catch (error) {
+    console.log(error);
   }
 }
 
-dbConnect()
+dbConnect();
 
-module.exports = dbClient 
+module.exports = dbClient;
