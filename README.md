@@ -29,7 +29,16 @@ Query Parameters:
     "imdbRating": "7.1",
     "director": "喬伊克勞福德(JoelCrawford)",
     "actors": ["尼可拉斯凱吉(NicolasCage)","萊恩雷諾斯(RyanReynolds)"...],
-    "trailer": "https://..........."
+    "trailer": "https://...........",
+    "thumbnails": {
+      "default":{
+        "url":"https://.......",
+        "width":120,
+        "height":90
+      },
+      "medium":{...},
+      "high":{...}
+    }
   }
   ```
 
