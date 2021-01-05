@@ -3,7 +3,10 @@ const dbClient = require('../models/dbClient');
 const emailController = {
   subscribeEmail: async (request, response) => {
     const { email } = request.body;
-    if (!email) return response.json({ ok: 0, errorMessage: 'Email value required.' });
+    if (!email) return response.json({
+      ok: 0,
+      errorMessage: 'Email required.'
+    });
     try {
       const data = await dbClient.db('test').collection('emails')
         .updateOne({ email }, { $set: { email } }, { upsert: true });
