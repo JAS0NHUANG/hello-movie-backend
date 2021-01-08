@@ -8,7 +8,7 @@ const emailController = {
       const data = await dbClient.db('test').collection('emails')
         .updateOne({ email }, { $set: { email } }, { upsert: true });
       response.json(data.result);
-      return console.log('Email Sent');
+      return console.log('Email saved to DB' + email);
     } catch (error) {
       response.json({ ok: 0, errorMessage: error });
       return console.log(error);
@@ -18,15 +18,14 @@ const emailController = {
     const emailStr = request.query.email;
     try {
       const data = await dbClient.db('test').collection('emails')
-        .deleteOne({ email });
+        .deleteOne({email: emailStr});
       response.json(data.result);
-      return console.log('Email Deleted');
+      return console.log('Email Deleted' + email);
     } catch (error) {
       response.json({ ok: 0, errorMessage: error });
       return console.log(error);
     }
   },
-
 };
 
 module.exports = emailController;

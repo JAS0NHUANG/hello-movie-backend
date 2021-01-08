@@ -18,7 +18,7 @@ app.get('/movies-thisweek', movieController.getMoviesThisweek);
 app.get('/movie-genres', movieController.getMovieGenres);
 
 app.post('/subscribe', emailController.subscribeEmail);
-app.post('/unsubscribe', emailController.unSubscribeEmail);
+app.get('/unsubscribe', emailController.unSubscribeEmail);
 
 app.listen(port, () => {
   console.log('Hello Movie!');
